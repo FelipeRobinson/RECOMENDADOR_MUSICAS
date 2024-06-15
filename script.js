@@ -32,52 +32,52 @@ function draw() {
 }
 
 function geraRecomendacao (idade, gostaDeFantasia, gostaDeAventura, gostaDeAcao, gostaDeDrama) {
-  if (idade >= 10) {
+  if (idade <= 18) {
     if (idade >= 14) {
       return "O menino que descobriu o vento";
     }
-    if (idade >=12) { 
+    else if (idade >= 12) { 
       if (idade >= 12) {
           if (gostaDeFantasia && gostaDeAventura) {
             return "Homem aranha: no aranhaverso";          
           } 
-          else{
+          else {
           return "Ladrões de bicicleta";
           }
+      } 
+      else if (gostaDeDrama) {
+        return "Romeu e Julieta";
+      }
+      else {
+        if (gostaDeFantasia) {
+          return "As aventuras de pi";
         } 
-        if (gostaDeDrama) {
-          return "Romeu e Julieta";
-        }
         else {
-          if (gostaDeFantasia) {
-            return "As aventuras de pi";
-          } 
-          else {
-            return "Depois da chuva";
-          }
+          return "Depois da chuva";
         }
       }
     }
-    if (idade >= 18) {
-      if (gostaDeDrama) {
-        return "50 tons de cinza"
-      }
-      if (gostaDeFantasia) {
-        return ""
-      }
-      if (gostaDeAventura) {
-        return ""
-      }
+  }
+  if (idade >= 18) {
+    if (gostaDeDrama) {
+      return "50 tons de cinza"
     }
-    else {
-      if (gostaDeFantasia) {
-        return "A viagem de chihiro";
-      } 
-      if (gostaDeAventura) {
-        return "O feitiço do tempo";
-      }
-      if (gostaDeAcao) {
-        return "Power Rangers";
-      } 
+    if (gostaDeFantasia) {
+      return ""
     }
+    if (gostaDeAventura) {
+      return ""
+    }
+  }
+  else {
+    if (gostaDeFantasia) {
+      return "A viagem de chihiro";
+    } 
+    if (gostaDeAventura) {
+      return "O feitiço do tempo";
+    }
+    if (gostaDeAcao) {
+      return "Power Rangers";
+    } 
+  }
 }
