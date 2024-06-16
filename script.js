@@ -7,6 +7,37 @@ var Sertanejo;
 var Rock;
 var MPB;
 
+// músicas aqui...
+var desabafo;
+//var atos2;
+var granade;
+/* var anajulia;
+var meninoDaPorteira;
+var beggin;
+var setemares;
+var diario;
+var clickbait;
+var uptownfunk;
+var talisma;
+if (gostaDeSertanejo) return undefined;
+var sandman;
+var manias;
+var negodrama;
+var desejo;
+var shakeitoff;
+var vafalume;
+var tijolinho;
+var setevias;
+var lancaperfume;
+*/
+var currentSong
+
+function preload() {
+  desabafo = loadSound("desabafo.mp3")
+  atos2 = loadSound("atos2.mp3")
+  granade = loadSound("granade.mp3")
+}
+
 function setup() {
   createCanvas(800, 400);
   createElement("h1", "Recomendador de Músicas");
@@ -31,12 +62,25 @@ function draw() {
   var gostaDeSertanejo = Sertanejo.checked();
   var gostaDeRock = Rock.checked();
   var gostaDeMPB = MPB.checked();
+  
+  var songToPlay = getSongToPlay(idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB);
+  
+  if (songToPlay !== currentSong) {
+    if (currentSong) {
+      currentSong.stop();
+    }
+    if (songToPlay) {
+      songToPlay.play();
+    }
+    currentSong = songToPlay;
+  }
+
   var recomenda = geraRecomendacao(idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB);
 
-  fill (color("red"));
-  textAlign (CENTER, CENTER);
-  textSize (38);
-  text (recomenda, width / 2, height / 2);
+  fill(color("red"));
+  textAlign(CENTER, CENTER);
+  textSize(38);
+  text(recomenda, width / 2, height / 2);
 }
 
 function geraRecomendacao (idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB) {
@@ -93,7 +137,7 @@ function geraRecomendacao (idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gost
       return "Nego Drama (Racionais)"
     }
     if (gostaDeTrap) {
-      return ""
+      return "Qual é seu desejo? (Tz da Coro)"
     }
     if (gostaDePopInter) {
       return "Shake it Of (Taylor Swift)"
@@ -111,4 +155,37 @@ function geraRecomendacao (idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gost
       return "Lança-Perfume (Rita Lee)"
     }
   }
+}
+
+function getSongToPlay(idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB) {
+  if (idade <= 18) {
+    if (idade <= 10) {
+      if (gostaDeRap) return desabafo;
+      if (gostaDeTrap) return atos2;
+      if (gostaDePopInter) return granade;
+      if (gostaDePopNac) return anajulia;
+      if (gostaDeSertanejo) return meninoDaPorteira;
+      if (gostaDeRock) return beggin;
+      if (gostaDeMPB) return setemares;
+    }
+    if (idade <= 14) {
+      if (gostaDeRap) return diario;
+      if (gostaDeTrap) return clickbait;
+      if (gostaDePopInter) return uptownfunk;
+      if (gostaDePopNac) return talisma;
+      if (gostaDeSertanejo) return undefined;
+      if (gostaDeRock) return sandman;
+      if (gostaDeMPB) return manias;
+    }
+  }
+  if (idade > 18) {
+    if (gostaDeRap) return negodrama;
+    if (gostaDeTrap) return desejo;
+    if (gostaDePopInter) return shakeitoff;
+    if (gostaDePopNac) return vafalume;
+    if (gostaDeSertanejo) return tijolinho;
+    if (gostaDeRock) return setevias;
+    if (gostaDeMPB) return lancaperfume;
+  }
+  return undefined;
 }
