@@ -1,83 +1,114 @@
 var Idade;
-var Fantasia;
-var Aventura;
-var Acao;
-var Drama;
-var Terror;
+var Rap;
+var Trap;
+var PopInter;
+var PopNac;
+var Sertanejo;
+var Rock;
+var MPB;
 
 function setup() {
   createCanvas(800, 400);
-  createElement("h2", "Recomendador de filmes");
+  createElement("h1", "Recomendador de Músicas");
   createSpan("Sua idade:");
   Idade = createInput("5");
-  Fantasia = createCheckbox("Gosta de fantasia?");
-  Aventura = createCheckbox("Gosta de aventura?");
-  Acao = createCheckbox("Gosta de ação?");
-  Drama = createCheckbox("Gosta de drama?");
+  Rap = createCheckbox("Gosta de Rap?");
+  Trap = createCheckbox("Gosta de Trap?");
+  PopInter = createCheckbox("Gosta de Pop Internacional?");
+  PopNac = createCheckbox("Gosta de Pop Nacional?");
+  Sertanejo = createCheckbox("Gosta de Sertanejo?");
+  Rock = createCheckbox("Gosta de Rock?");
+  MPB = createCheckbox("Gosta de MPB?");
 }
 
 function draw() {
-  background("white");
+  background("black");
   var idade = Idade.value();
-  var gostaDeFantasia = Fantasia.checked();
-  var gostaDeAventura = Aventura.checked();
-  var gostaDeAcao = Acao.checked();
-  var gostaDeDrama = Drama.checked();
-  var recomenda = geraRecomendacao(idade, gostaDeFantasia, gostaDeAventura, gostaDeAcao, gostaDeDrama);
+  var gostaDeRap = Rap.checked();
+  var gostaDeTrap = Trap.checked();
+  var gostaDePopInter = PopInter.checked();
+  var gostaDePopNac = PopNac.checked();
+  var gostaDeSertanejo = Sertanejo.checked();
+  var gostaDeRock = Rock.checked();
+  var gostaDeMPB = MPB.checked();
+  var recomenda = geraRecomendacao(idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB);
 
-  fill (color(76, 0, 115));
+  fill (color("red"));
   textAlign (CENTER, CENTER);
   textSize (38);
   text (recomenda, width / 2, height / 2);
 }
 
-function geraRecomendacao (idade, gostaDeFantasia, gostaDeAventura, gostaDeAcao, gostaDeDrama) {
+function geraRecomendacao (idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB) {
   if (idade <= 18) {
-    if (idade >= 14) {
-      return "O menino que descobriu o vento";
-    }
-    else if (idade >= 12) { 
-      if (idade >= 12) {
-          if (gostaDeFantasia && gostaDeAventura) {
-            return "Homem aranha: no aranhaverso";          
-          } 
-          else {
-          return "Ladrões de bicicleta";
-          }
-      } 
-      else if (gostaDeDrama) {
-        return "Romeu e Julieta";
+    if (idade <= 10) {
+      if (gostaDeRap) {
+        return "Desabafo/Deixa eu dizer (Marcelo D2)"
       }
-      else {
-        if (gostaDeFantasia) {
-          return "As aventuras de pi";
-        } 
-        else {
-          return "Depois da chuva";
-        }
+      if (gostaDeTrap) {
+        return "Atos 2 (Trindade Records)"
+      }
+      if (gostaDePopInter) {
+        return "Granade (Bruno Mars)"
+      }
+      if (gostaDePopNac) {
+        return "Anna Júlia (Los Hermanos)"
+      }
+      if (gostaDeSertanejo) {
+        return "Menino da Porteira (Daniel)"
+      }
+      if (gostaDeRock) {
+        return "Beggin (Maneskin)"
+      }
+      if (gostaDeMPB) {
+        return "Descobridor dos 7 mares (Tim Maia)"
+      }
+    }
+    if (idade <= 14) {
+      if (gostaDeRap) {
+        return "Diário De Um Detento (Racionais)"
+      }
+      if (gostaDeTrap) {
+        return "Clickbait (Veigh)"
+      }
+      if (gostaDePopInter) {
+        return "Uptown Funk (Bruno Mars)"
+      }
+      if (gostaDePopNac) {
+        return "Talismã (Isa)"
+      }
+      if (gostaDeSertanejo) {
+        return ""
+      }
+      if (gostaDeRock) {
+        return "Sandman (Metallica)"
+      }
+      if (gostaDeMPB) {
+        return "Manias de Você (Rita Lee)"
       }
     }
   }
   if (idade >= 18) {
-    if (gostaDeDrama) {
-      return "50 tons de cinza"
+    if (gostaDeRap) {
+      return "Nego Drama (Racionais)"
     }
-    if (gostaDeFantasia) {
+    if (gostaDeTrap) {
       return ""
     }
-    if (gostaDeAventura) {
-      return ""
+    if (gostaDePopInter) {
+      return "Shake it Of (Taylor Swift)"
     }
-  }
-  else {
-    if (gostaDeFantasia) {
-      return "A viagem de chihiro";
-    } 
-    if (gostaDeAventura) {
-      return "O feitiço do tempo";
+    if (gostaDePopNac) {
+      return "Vafalume (Pollo e Ivo Mozar)"
     }
-    if (gostaDeAcao) {
-      return "Power Rangers";
-    } 
+    if (gostaDeSertanejo) {
+      return "Tijolinho por Tijolinho (Enzo Rabelo)"
+    }
+    if (gostaDeRock) {
+      return "Sete vidas (Pitty)"
+    }
+    if (gostaDeMPB) {
+      return "Lança-Perfume (Rita Lee)"
+    }
   }
 }
