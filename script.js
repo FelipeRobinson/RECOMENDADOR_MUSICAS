@@ -9,9 +9,9 @@ var MPB;
 
 // músicas aqui...
 var desabafo;
-//var atos2;
+var atos2;
 var granade;
-/* var anajulia;
+var anajulia;
 var meninoDaPorteira;
 var beggin;
 var setemares;
@@ -29,13 +29,31 @@ var vafalume;
 var tijolinho;
 var setevias;
 var lancaperfume;
-*/
+
 var currentSong
 
 function preload() {
   desabafo = loadSound("desabafo.mp3")
   atos2 = loadSound("atos2.mp3")
   granade = loadSound("granade.mp3")
+  anajulia = loadSound("anajulia.mp3")
+  meninoDaPorteira = loadSound("meninoDaPorteira.mp3")
+  beggin = loadSound("beggin.mp3")
+  setemares = loadSound("setemares.mp3")
+  diario = loadSound("diario.mp3")
+  clickbait = loadSound("clickbait.mp3")
+  uptownfunk = loadSound("uptownfunk.mp3")
+  talisma = loadSound("talisma.mp3")
+
+  sandman = loadSound("sandman.mp3")
+  manias = loadSound("manias.mp3")
+  negodrama = loadSound("drama.mp3")
+  desejo = loadSound("desejo.mp3")
+  shakeitoff = loadSound("shakeitof.mp3")
+  vafalume = loadSound("vafalume.mp3")
+  tijolinho = loadSound("tijolinho.mp3")
+  setevias = loadSound("setevidas.mp3")
+  lancaperfume = loadSound("lanca.mp3")
 }
 
 function setup() {
@@ -116,16 +134,16 @@ function geraRecomendacao (idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gost
         return "Clickbait (Veigh)"
       }
       if (gostaDePopInter) {
-        return "Uptown Funk (Bruno Mars)"
+        return "Uptown Funk (Mark Ronson)"
       }
       if (gostaDePopNac) {
-        return "Talismã (Isa)"
+        return "Meu Talismã (Isa)"
       }
       if (gostaDeSertanejo) {
         return ""
       }
       if (gostaDeRock) {
-        return "Sandman (Metallica)"
+        return "Enter Sandman (Metallica)"
       }
       if (gostaDeMPB) {
         return "Manias de Você (Rita Lee)"
