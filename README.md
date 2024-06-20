@@ -9,7 +9,8 @@ Felipe Robinson é o criador dos projetos 🤓 <br>
 Projeto criado no software do P5.JS, porém utilizei o VS Code (um conhecimento mais aprofundado).
 <br><br>
 
-### Onde executar: [P5](https://https://editor.p5js.org/FelipeSpider/sketches/bqCadVZLm)
+### ONDE EXECUTAR: [RECOMENDADOR](https://https://editor.p5js.org/FelipeSpider/sketches/bqCadVZLm)<br>
+LEMBRANDO: o projeto não pode ser alterado. Risco de punição!
 <br><br>
 Created course by **ALURA**👾💜
 <br><br>
