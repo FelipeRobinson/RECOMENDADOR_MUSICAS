@@ -11,11 +11,9 @@ Projeto criado no software do P5.JS, porém utilizei o VS Code (um conhecimento 
 
 ### ONDE EXECUTAR: [RECOMENDADOR](https://https://editor.p5js.org/FelipeSpider/sketches/bqCadVZLm)<br>
 LEMBRANDO: o projeto não pode ser alterado. Risco de punição!
-<br><br>
-Created course by **ALURA**👾💜
-<br><br>
+<br><br><br>
 
-### SOBRE MIM
+# SOBRE MIM
 - Criador do projeto a seguir, com auxilio da plataforma [ALURA](https://alura.com.br)🌈
 - Estudante de DS no [COTUCA](https://cotuca.unicamp.br)📕⛔🌑
 - Estudante de Ensino Médio no  [CULTO A CIÊNCIA]([https://cultoaciencia.net](http://www.cultoaciencia.net/pag_apresentacao.htm))📚⚠️☀️
