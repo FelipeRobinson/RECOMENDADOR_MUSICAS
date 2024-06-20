@@ -1,6 +1,6 @@
-[![Build Status](https://img.shields.io/github/actions/workflow/status/tcurdt/jdeb/ci.yml?style=for-the-badge)](https://github.com/tcurdt/jdeb/actions)
-[![Coverage Status](https://img.shields.io/codecov/c/github/tcurdt/jdeb/master?style=for-the-badge)](https://codecov.io/gh/tcurdt/jdeb)
-![Maven Central](https://img.shields.io/maven-central/v/org.vafer/jdeb.svg?style=for-the-badge&maxAge=86400)
+[![EXECUTAR](https://img.shields.io/github/actions/workflow/status/tcurdt/jdeb/ci.yml?style=for-the-badge)](https://github.com/tcurdt/jdeb/actions)
+[![GITHUB](https://img.shields.io/codecov/c/github/tcurdt/jdeb/master?style=for-the-badge)](https://codecov.io/gh/tcurdt/jdeb)
+![LINKEDIN](https://img.shields.io/maven-central/v/org.vafer/jdeb.svg?style=for-the-badge&maxAge=86400)
 
 # RECOMENDADOR DE MÚSICAS
 ### FELIPE WITH ALURA<br>🉐❤️🍁🕷️🌒🔒👂
