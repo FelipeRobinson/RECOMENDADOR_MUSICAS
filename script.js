@@ -7,54 +7,7 @@ var Sertanejo;
 var Rock;
 var MPB;
 
-// músicas aqui...
-var desabafo;
-var atos2;
-var granade;
-var anajulia;
-var meninoDaPorteira;
-var beggin;
-var setemares;
-var diario;
-var clickbait;
-var uptownfunk;
-var talisma;
-if (gostaDeSertanejo) return undefined;
-var sandman;
-var manias;
-var negodrama;
-var desejo;
-var shakeitoff;
-var vafalume;
-var tijolinho;
-var setevias;
-var lancaperfume;
-
-var currentSong
-
-function preload() {
-  desabafo = loadSound("desabafo.mp3")
-  atos2 = loadSound("atos2.mp3")
-  granade = loadSound("granade.mp3")
-  anajulia = loadSound("anajulia.mp3")
-  meninoDaPorteira = loadSound("meninoDaPorteira.mp3")
-  beggin = loadSound("beggin.mp3")
-  setemares = loadSound("setemares.mp3")
-  diario = loadSound("diario.mp3")
-  clickbait = loadSound("clickbait.mp3")
-  uptownfunk = loadSound("uptownfunk.mp3")
-  talisma = loadSound("talisma.mp3")
-
-  sandman = loadSound("sandman.mp3")
-  manias = loadSound("manias.mp3")
-  negodrama = loadSound("drama.mp3")
-  desejo = loadSound("desejo.mp3")
-  shakeitoff = loadSound("shakeitof.mp3")
-  vafalume = loadSound("vafalume.mp3")
-  tijolinho = loadSound("tijolinho.mp3")
-  setevias = loadSound("setevidas.mp3")
-  lancaperfume = loadSound("lanca.mp3")
-}
+var currentSong;
 
 function setup() {
   createCanvas(800, 400);
@@ -81,129 +34,92 @@ function draw() {
   var gostaDeRock = Rock.checked();
   var gostaDeMPB = MPB.checked();
   
-  var songToPlay = getSongToPlay(idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB);
-  
-  if (songToPlay !== currentSong) {
+  var songRecomendacao = geraRecomendacao(idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB);
+
+  if (songRecomendacao !== currentSong) {
     if (currentSong) {
       currentSong.stop();
     }
-    if (songToPlay) {
-      songToPlay.play();
-    }
-    currentSong = songToPlay;
+    loadSound(songRecomendacao.file, function(sound) {
+      sound.play();
+      currentSong = sound;
+    });
   }
-
-  var recomenda = geraRecomendacao(idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB);
 
   fill(color("red"));
   textAlign(CENTER, CENTER);
   textSize(38);
-  text(recomenda, width / 2, height / 2);
+  text(songRecomendacao.name, width / 2, height / 2);
 }
 
-function geraRecomendacao (idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB) {
+function geraRecomendacao(idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB) {
   if (idade <= 18) {
     if (idade <= 10) {
       if (gostaDeRap) {
-        return "Desabafo/Deixa eu dizer (Marcelo D2)"
+        return { name: "Desabafo/Deixa eu dizer (Marcelo D2)", file: "assets/desabafo.mp3" };
       }
       if (gostaDeTrap) {
-        return "Atos 2 (Trindade Records)"
+        return { name: "Atos 2 (Trindade Records)", file: "assets/atos2.mp3" };
       }
       if (gostaDePopInter) {
-        return "Granade (Bruno Mars)"
+        return { name: "Granade (Bruno Mars)", file: "assets/granade.mp3" };
       }
       if (gostaDePopNac) {
-        return "Anna Júlia (Los Hermanos)"
+        return { name: "Anna Júlia (Los Hermanos)", file: "assets/anajulia.mp3" };
       }
       if (gostaDeSertanejo) {
-        return "Menino da Porteira (Daniel)"
+        return { name: "Menino da Porteira (Daniel)", file: "assets/meninoDaPorteira.mp3" };
       }
       if (gostaDeRock) {
-        return "Beggin (Maneskin)"
+        return { name: "Beggin (Maneskin)", file: "assets/beggin.mp3" };
       }
       if (gostaDeMPB) {
-        return "Descobridor dos 7 mares (Tim Maia)"
+        return { name: "Descobridor dos 7 mares (Tim Maia)", file: "assets/setemares.mp3" };
       }
     }
     if (idade <= 14) {
       if (gostaDeRap) {
-        return "Diário De Um Detento (Racionais)"
+        return { name: "Diário De Um Detento (Racionais)", file: "assets/diario.mp3" };
       }
       if (gostaDeTrap) {
-        return "Clickbait (Veigh)"
+        return { name: "Clickbait (Veigh)", file: "assets/clickbait.mp3" };
       }
       if (gostaDePopInter) {
-        return "Uptown Funk (Mark Ronson)"
+        return { name: "Uptown Funk (Mark Ronson)", file: "assets/uptownfunk.mp3" };
       }
       if (gostaDePopNac) {
-        return "Meu Talismã (Isa)"
-      }
-      if (gostaDeSertanejo) {
-        return ""
+        return { name: "Meu Talismã (Isa)", file: "assets/talisma.mp3" };
       }
       if (gostaDeRock) {
-        return "Enter Sandman (Metallica)"
+        return { name: "Enter Sandman (Metallica)", file: "assets/sandman.mp3" };
       }
       if (gostaDeMPB) {
-        return "Manias de Você (Rita Lee)"
+        return { name: "Manias de Você (Rita Lee)", file: "assets/manias.mp3" };
       }
-    }
-  }
-  if (idade >= 18) {
-    if (gostaDeRap) {
-      return "Nego Drama (Racionais)"
-    }
-    if (gostaDeTrap) {
-      return "Qual é seu desejo? (Tz da Coro)"
-    }
-    if (gostaDePopInter) {
-      return "Shake it Of (Taylor Swift)"
-    }
-    if (gostaDePopNac) {
-      return "Vafalume (Pollo e Ivo Mozar)"
-    }
-    if (gostaDeSertanejo) {
-      return "Tijolinho por Tijolinho (Enzo Rabelo)"
-    }
-    if (gostaDeRock) {
-      return "Sete vidas (Pitty)"
-    }
-    if (gostaDeMPB) {
-      return "Lança-Perfume (Rita Lee)"
-    }
-  }
-}
-
-function getSongToPlay(idade, gostaDeRap, gostaDeTrap, gostaDePopInter, gostaDePopNac, gostaDeSertanejo, gostaDeRock, gostaDeMPB) {
-  if (idade <= 18) {
-    if (idade <= 10) {
-      if (gostaDeRap) return desabafo;
-      if (gostaDeTrap) return atos2;
-      if (gostaDePopInter) return granade;
-      if (gostaDePopNac) return anajulia;
-      if (gostaDeSertanejo) return meninoDaPorteira;
-      if (gostaDeRock) return beggin;
-      if (gostaDeMPB) return setemares;
-    }
-    if (idade <= 14) {
-      if (gostaDeRap) return diario;
-      if (gostaDeTrap) return clickbait;
-      if (gostaDePopInter) return uptownfunk;
-      if (gostaDePopNac) return talisma;
-      if (gostaDeSertanejo) return undefined;
-      if (gostaDeRock) return sandman;
-      if (gostaDeMPB) return manias;
     }
   }
   if (idade > 18) {
-    if (gostaDeRap) return negodrama;
-    if (gostaDeTrap) return desejo;
-    if (gostaDePopInter) return shakeitoff;
-    if (gostaDePopNac) return vafalume;
-    if (gostaDeSertanejo) return tijolinho;
-    if (gostaDeRock) return setevias;
-    if (gostaDeMPB) return lancaperfume;
+    if (gostaDeRap) {
+      return { name: "Nego Drama (Racionais)", file: "assets/drama.mp3" };
+    }
+    if (gostaDeTrap) {
+      return { name: "Qual é seu desejo? (Tz da Coro)", file: "assets/desejo.mp3" };
+    }
+    if (gostaDePopInter) {
+      return { name: "Shake it Off (Taylor Swift)", file: "assets/shakeitoff.mp3" };
+    }
+    if (gostaDePopNac) {
+      return { name: "Vafalume (Pollo e Ivo Mozart)", file: "assets/vafalume.mp3" };
+    }
+    if (gostaDeSertanejo) {
+      return { name: "Tijolinho por Tijolinho (Enzo Rabelo)", file: "assets/tijolinho.mp3" };
+    }
+    if (gostaDeRock) {
+      return { name: "Sete vidas (Pitty)", file: "assets/setevias.mp3" };
+    }
+    if (gostaDeMPB) {
+      return { name: "Lança-Perfume (Rita Lee)", file: "assets/lanca.mp3" };
+    }
   }
-  return undefined;
+  return { name: "", file: "" };
 }
